@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hiwt/routes.dart';
+import 'package:hiwt/pages/wheater.dart';
 
 void main() {
   runApp(const App());
@@ -10,13 +10,13 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return MaterialApp(
       title: 'How is the wather today?',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightBlue),
         useMaterial3: true,
       ),
-      routerConfig: appRoutes,
+      home: const WheaterPage(),
     );
   }
 }

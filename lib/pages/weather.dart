@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:hiwt/core/models/wheater.dart';
 
 import '../core/singletons/app_manager.dart';
 import 'cities.dart';
-import 'components/temp.dart';
+import 'components/forecast.dart';
 import 'components/weather_erro.dart';
 
-class WheaterPage extends StatelessWidget {
-  const WheaterPage({super.key});
+class WeatherPage extends StatelessWidget {
+  const WeatherPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class WheaterPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: FutureBuilder<WheaterModel?>(
-          future: appManager.getWheater(),
+          future: appManager.getWheaterMock(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(
@@ -34,8 +35,26 @@ class WheaterPage extends StatelessWidget {
                         children: [
                           Text(
                             snapshot.data!.temp.toString(),
-                            style: const TextStyle(fontSize: 128),
+                            style: const TextStyle(
+                              fontSize: 128,
+                            ),
                           ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SvgPicture.asset(
+                                'assets/icons/weather_condition/${snapshot.data!.condition}.svg',
+                                width: 48,
+                                height: 48,
+                              ),
+                              const SizedBox(width: 8.0),
+                              Text(
+                                snapshot.data!.description ?? '',
+                                style: const TextStyle(fontSize: 24),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 16.0),
                           GestureDetector(
                             onTap: () => Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
@@ -46,10 +65,6 @@ class WheaterPage extends StatelessWidget {
                               style: const TextStyle(fontSize: 18),
                             ),
                           ),
-                          Text(
-                            snapshot.data!.description ?? '',
-                            style: const TextStyle(fontSize: 18),
-                          ),
                         ],
                       ),
                       const SizedBox(height: 8.0),
@@ -59,12 +74,7 @@ class WheaterPage extends StatelessWidget {
                           itemBuilder: (context, index) {
                             var item = snapshot.data!.forecast?[index];
                             if (item == null) return const SizedBox();
-
-                            return TempWidget(
-                              date: item.data!,
-                              max: item.maxima.toString(),
-                              min: item.minima.toString(),
-                            );
+                            return ForecastWidget(forecast: item);
                           },
                         ),
                       ),

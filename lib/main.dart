@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hiwt/pages/wheater.dart';
+import 'package:hiwt/pages/weather.dart';
 
 void main() {
   runApp(const App());
@@ -15,8 +15,9 @@ class App extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightBlue),
         useMaterial3: true,
+        fontFamily: 'MadimiOne',
       ),
-      home: const WheaterPage(),
+      home: const WeatherPage(),
     );
   }
 }

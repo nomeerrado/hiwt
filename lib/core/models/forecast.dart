@@ -1,23 +1,26 @@
 class ForecastModel {
   ForecastModel({
-    this.data,
-    this.diaDaSemana,
-    this.maxima,
-    this.minima,
-    this.descricao,
+    this.date,
+    this.weekDay,
+    this.max,
+    this.min,
+    this.description,
+    this.condition,
   });
 
-  final String? data;
-  final String? diaDaSemana;
-  final int? maxima;
-  final int? minima;
-  final String? descricao;
+  final String? date;
+  final String? weekDay;
+  final int? max;
+  final int? min;
+  final String? description;
+  final String? condition;
 
   factory ForecastModel.fromJson(Map<String, dynamic> json) => ForecastModel(
-        data: json['date'],
-        diaDaSemana: json['weekday'],
-        maxima: json['max'],
-        minima: json['min'],
-        descricao: json['description'],
+        date: json['date'],
+        weekDay: json['weekday'],
+        max: json['max'],
+        min: json['min'],
+        description: json['description'],
+        condition: json['condition'],
       );
 }

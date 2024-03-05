@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hiwt/core/singletons/app_manager.dart';
 import 'package:hiwt/core/utils/cities.dart';
-import 'package:hiwt/pages/wheater.dart';
+import 'package:hiwt/pages/weather.dart';
 
 class CitiesPage extends StatelessWidget {
   const CitiesPage({super.key});
@@ -30,7 +30,7 @@ class CitiesPage extends StatelessWidget {
                       AppManagerSingleton().cityName = cityName;
                       Navigator.of(context).pushReplacement(
                         MaterialPageRoute(
-                          builder: (context) => const WheaterPage(),
+                          builder: (context) => const WeatherPage(),
                         ),
                       );
                     },

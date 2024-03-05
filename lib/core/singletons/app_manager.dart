@@ -1,3 +1,4 @@
+import '../mocks/weather.dart';
 import '../models/wheater.dart';
 import '../services/wheater.dart';
 
@@ -17,5 +18,9 @@ class AppManagerSingleton {
     }
 
     return await _service.getWheater(cityName!);
+  }
+
+  Future<WheaterModel?> getWheaterMock() async {
+    return weatherMock;
   }
 }

@@ -24,7 +24,7 @@ class WheaterService {
 
       if (wheater.forecast != null && wheater.forecast!.isNotEmpty) {
         final dateFormat = DateFormat('dd/MM');
-        if (wheater.forecast!.first.data! ==
+        if (wheater.forecast!.first.date! ==
             dateFormat.format(DateTime.now().add(const Duration(days: -1)))) {
           wheater.forecast!.removeAt(0);
         }

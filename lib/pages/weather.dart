@@ -16,7 +16,7 @@ class WeatherPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: FutureBuilder<WheaterModel?>(
-          future: appManager.getWheaterMock(),
+          future: appManager.getWeatherMock(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(

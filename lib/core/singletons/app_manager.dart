@@ -12,15 +12,15 @@ class AppManagerSingleton {
 
   String? cityName;
 
-  Future<WheaterModel?> getWheater() async {
+  Future<WheaterModel?> getWeather() async {
     if (cityName == null || cityName!.isEmpty) {
       return null;
     }
 
-    return await _service.getWheater(cityName!);
+    return await _service.getWeather(cityName!);
   }
 
-  Future<WheaterModel?> getWheaterMock() async {
+  Future<WheaterModel?> getWeatherMock() async {
     return weatherMock;
   }
 }

@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
 class WheaterService {
-  Future<WheaterModel?> getWheater(String cityName) async {
+  Future<WheaterModel?> getWeather(String cityName) async {
     final woeid = CityUtils.getWOEID(cityName);
     String url = 'https://api.hgbrasil.com/weather?woeid=$woeid';
     Map<String, String> headers = <String, String>{};

@@ -1,16 +1,18 @@
-# hiwt
+# How is the weather?
 
-A new Flutter project.
+## Sobre
 
-## Getting Started
+Esse projeto se consiste basicamente em um app que apresenta informações climáticas.
 
-This project is a starting point for a Flutter application.
+## Por que?
 
-A few resources to get you started if this is your first Flutter project:
+O projeto foi desenvolvido para ser um modelo simples de utilização de Http, Singleton, Mock e Svg.  
+Além disso, eu exercíto meus conhecimentos em flutter periódicamente.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Informações importantes!
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Para utilizar dados reais da api disponibilizada por HG Brasil, será necessário alterar o método chamado na linha 19 do arquivo ../hiwt/lib/pages/weather.dart, pois a api tem um limite de poucas requisições diárias, sendo assim, foi criado um mock para exibição dos dados.
+Para aumentar esse limite, é necessário informar nas requisições uma chave de api, que pode ser criada a partir do site da HG Brasil, mediante cadastro de usuário.
+
+## Imagens
+
